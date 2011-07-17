@@ -1,0 +1,200 @@
+<html>
+<head>
+  <title>Mashboard</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  <link rel="icon" type="image/png" href="iui/iui-favicon.png">
+  <link rel="apple-touch-icon" href="images/Mashboard-Icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="stylesheet" href="iui/iui.css" type="text/css" />
+  <link rel="stylesheet" title="Default" href="iui/t/default/default-theme.css"  type="text/css"/>
+  <link rel="stylesheet" href="css/iui-panel-list.css" type="text/css" />
+  <link rel="stylesheet" href="iui/ext-sandbox/iscroll/iui-iscroll.css" type="text/css" />
+  <link rel="stylesheet" href="css/custom.css">
+  <script type="application/x-javascript" src="iui/iui.js"></script>
+  <script type="application/x-javascript" src="iui/ext-sandbox/iscroll/iscroll.js"></script>
+  <script type="application/x-javascript" src="iui/ext-sandbox/iscroll/iui-iscroll.js"></script>
+  <script type="application/x-javascript" src="js/iui-mashboard-fullscreen.js"></script>
+  <script type="application/x-javascript" src="js/jquery-1.6.2.js"></script>
+  <script type="application/x-javascript" src="js/datasource.js"></script>
+  <script type="application/x-javascript" src="js/ticker.js"></script>
+  <script type="application/x-javascript" src="js/layer.js"></script>
+  <script type="application/x-javascript" src="js/jquery-1.5-hack.js"></script>
+  <script type="application/x-javascript" src="js/template.js"></script>
+  <script type="application/x-javascript" src="js/mashboard.js"></script>
+  <script type="application/x-javascript" src="js/dataSources.js"></script>
+  <script type="application/x-javascript" src="js/mashboard-setup.js"></script>
+  <script>
+    iui.debug = true;  // enable portrait/landscape swapping in desktop browser for debugging
+  </script>
+</head>
+<body>
+  <div id="iui-container" class="iuinopopover">
+    <div class="toolbar">
+        <h1 id="pageTitle"></h1>
+        <a id="backButton" class="button" href="#"></a>
+    </div>
+
+	<div id="home" title="Mashboard" selected="true">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#about">About Mashboard</a></li>
+					<li><a href="#widgets">Widgets</a></li>
+					<li><a href="#datasources">Data Sources</a></li>
+					<li><a href="#mashboards">Mashboards</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="widgets" title="Widgets">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#ticker">Ticker</a></li>
+					<li><a href="#ticker">Bar Chart</a></li>
+					<li><a href="#ticker">Line Chart</a></li>
+					<li><a href="#ticker">Percentage Change</a></li>
+					<li><a href="#html">HTML</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="datasources" title="Data Sources">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#twitter">Twitter</a></li>
+					<li><a href="#github">GitHub</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="mashboards" title="Mashboards">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#demo-git">GitHub</a></li>
+					<li><a href="#demo-twit">Twitter</a></li>
+					<li><a href="#demo-git-twit">GitHub + Twitter</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="ticker" class="panel content ticker-wrapper content-pane" title="Ticker">
+          <div class="ticket-entry">
+              <span class="entry-name"></span>
+              <span class="entry-type"></span>
+              <span class="entry-body"></span>
+              <span class="entry-happened"></span>
+              <span class="entry-time"></span>
+          </div>
+      <ul>
+		<li>Description</li>
+		<li>Demo Panel</li>
+		<li>Sample Data</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+	
+	<div id="html" class="panel content content-pane" title="HTML">
+	  <h2>HTML Widget Goes Here</h2>
+	  <ul>
+		<li>Description</li>
+		<li>Demo Panel</li>
+		<li>Sample Data</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+
+	<div id="twitter" class="panel content" title="Twitter">
+	  <h2>Twitter DataSource Goes Here</h2>
+	  <ul>
+		<li>Description</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+
+	<div id="github" class="panel content" title="GitHub">
+	  <h2>GitHub DataSource Goes Here</h2>
+	  <ul>
+		<li>Description</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+
+	<div id="demo-git" class="panel content" title="GitHub">
+	  <h2>GitHub</h2>
+	  <ul>
+		<li>List of Widgets, Coordinates, & Parameters</li>
+		<li>Run/Fullscreen Button</li>
+	  </ul>
+	  <a class="whiteButton" href="#demo-git-run">Run</a>
+	</div>
+	
+	<div id="demo-git-run" class="panel content goFullScreen" title="GitHub - Run">
+	  <h2>GitHub (Running)</h2>
+	  <a class="button done-fullscreen" onclick="iui.removeClass(document.body, 'fullscreen')" target="_iuiignore">Done</a>
+	  <span class="ticker github-feed"></span>
+	</div>
+
+	<div id="demo-twit" class="panel content" title="Twitter">
+	  <h2>Twitter</h2>
+	  <ul>
+		<li>List of Widgets, Coordinates, & Parameters</li>
+		<li>Run/Fullscreen Button</li>
+	  </ul>
+	  <a class="whiteButton" href="#demo-twit-run">Run</a>
+	</div>
+	
+	<div id="demo-twit-run" class="panel content goFullScreen" title="Twitter - Run">
+	  <h2>Twitter (Running)</h2>
+	  <a class="button done-fullscreen" onclick="iui.removeClass(document.body, 'fullscreen')" target="_iuiignore">Done</a>
+	  <span class="ticker2 twitter-feed"></span>
+	</div>
+
+
+	<div id="demo-git-twit" class="panel content" title="Git+Twit">
+	  <h2>GitHub + Twitter</h2>
+	  <ul>
+		<li>List of Widgets, Coordinates, & Parameters</li>
+		<li>Run/Fullscreen Button</li>
+	  </ul>
+	  <a class="whiteButton" href="#demo-git-twit-run">Run</a>
+	</div>
+	
+	<div id="demo-git-twit-run" class="panel content goFullScreen" title="Git+Twit - Run">
+	  <h2>GitHub + Twitter (Running)</h2>
+	  <a class="button done-fullscreen" onclick="iui.removeClass(document.body, 'fullscreen')" target="_iuiignore">Done</a>
+	  <span class="ticker github-feed"></span>
+	  <span class="ticker2 twitter-feed"></span>
+	</div>
+
+
+	<div id="about" class="panel content" title="About">
+	  <h2>About Mashboard</h2>
+	  <ul>
+		<li><a target="_blank" href="https://github.com/mikhailxu/Mashboard">Mashboard on GitHub</a></li>
+		<li><a target="_blank" href="http://code.google.com/p/iui/">iUI Project</a></li>
+	  </ul>
+	</div>
+</div>
+
+  <div id="iuipad-content-panel">
+    <div class="toolbar">
+        <h1 id="contentTitle"></h1>
+        <a class="button leftButton" href="javascript:iui.popover_toc()" id="toc_button">TOC</a>
+    </div>
+    <div class="wrapper">
+      <div class="scroller">
+        <div id="iuipad-content">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
